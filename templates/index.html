@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict the Prompt</title>
+</head>
+<body>
+    <h1>Predict the Prompt</h1>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        {% for answer in selected_answers %}
+            <p>Answer {{ loop.index }}: {{ answer }}</p>
+            <label for="question{{ loop.index }}">Enter your predicted question:</label>
+            <input type="text" id="question{{ loop.index }}" name="question{{ loop.index }}" required><br>
+        {% endfor %}
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
